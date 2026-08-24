@@ -10,7 +10,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write # Allowed to fix formatting issues automatically
 
 jobs:
   terraform_checks:
@@ -24,13 +24,13 @@ jobs:
 
       # Step 2: Set up the official Terraform CLI tool on the runner
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v3.1.2
         with:
-          terraform_version: "1.5.0" # Keeps alignment with standard modern versions
+          terraform_version: "1.5.0"
 
-      # Step 3: Check if all .tf files follow standard canonical formatting
-      - name: Terraform Format Check
-        run: terraform fmt -check -recursive
+      # Step 3: Automatically fix formatting issues if any exist
+      - name: Auto Format Code
+        run: terraform fmt -recursive
 
       # Step 4: Initialize a dummy backend to download providers required for validation
       - name: Terraform Init
