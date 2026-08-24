@@ -1,0 +1,14 @@
+# OCI API Authentication Credentials
+tenancy_ocid     = "ocid1.tenancy.oc1..your_id_here"
+user_ocid        = "ocid1.user.oc1..your_id_here"
+fingerprint      = "12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef"
+private_key_path = "~/.oci/oci_api_key.pem"
+region           = "us-ashburn-1"
+
+# Resource Configuration Settings
+compartment_id      = "ocid1.compartment.oc1..your_id_here"
+availability_domain = "TvRS:US-ASHBURN-AD-1"
+ssh_public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ..."
+
+# Find the Oracle Linux OCID corresponding to your tenancy region in the OCI documentation
+oracle_linux_image_ocid = "ocid1.image.oc1.us-ashburn-1.aaaaaaa..."
