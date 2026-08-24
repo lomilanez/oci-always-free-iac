@@ -1,9 +1,5 @@
 # OCI Always Free Infrastructure as Code (IaC) with Terraform
 
-[![Terraform](https://shields.io>=1.2.0-7B42BC?logo=terraform&logoColor=white)](https://terraform.io)
-[![OCI](https://shields.io)](https://oracle.com)
-[![License: MIT](https://shields.io)](https://opensource.org)
-
 This repository contains reusable and modular **Terraform (HCL)** configurations to automate the deployment of a highly cost-efficient and secure compute infrastructure within the **Oracle Cloud Infrastructure (OCI) Always Free Tier**. 
 
 It eliminates human errors during console setups and provides a production-grade blueprint following OCI Security Architecture guidelines.
