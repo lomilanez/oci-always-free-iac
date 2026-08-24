@@ -1,0 +1,41 @@
+# .github/workflows/terraform-validate.yml
+name: "Terraform Lint and Validate"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  terraform_checks:
+    name: "Format & Validate"
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Clone the repository code into the runner workspace
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the official Terraform CLI tool on the runner
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.5.0" # Keeps alignment with standard modern versions
+
+      # Step 3: Check if all .tf files follow standard canonical formatting
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      # Step 4: Initialize a dummy backend to download providers required for validation
+      - name: Terraform Init
+        run: terraform init -backend=false
+
+      # Step 5: Validate the structural syntax and completeness of the configuration
+      - name: Terraform Validate
+        run: terraform validate
